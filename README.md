@@ -3,7 +3,9 @@ The Pytorch source code of Chapter 6 in thesis [Training Deep Neural Networks vi
 If you use this code, please cite the thesis.
 
 This work proposes a novel framework of DNN ensemble for SISR which features "diversity introducing module" and "knowledge transfer module".
+
 diversity introducing module: this module proactively improve the diversity between base learners which are favored by ensemble.
+
 knowledge transfer module: this module transfer knowledge between base learners when they are on training to improve their performance so that the generated ensemble's performance is enhanced.
 
 
