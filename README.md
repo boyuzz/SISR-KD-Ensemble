@@ -4,9 +4,11 @@ If you use this code, please cite the thesis.
 
 This work proposes a novel framework of DNN ensemble for SISR which features "diversity introducing module" and "knowledge transfer module".
 
-diversity introducing module: this module proactively improve the diversity between base learners which are favored by ensemble.
+**diversity introducing module**: this module proactively improve the diversity between base learners which are favored by ensemble.
 
-knowledge transfer module: this module transfer knowledge between base learners when they are on training to improve their performance so that the generated ensemble's performance is enhanced.
+**knowledge transfer module**: this module transfer knowledge between base learners when they are on training to improve their performance so that the generated ensemble's performance is enhanced.
+
+These two modules are demonstrated in the following figure. The proposed knowledge transfer featured ensemble model uses different upscaling methods (VDSR, DRRN, MS-LapSRN) as **diversity introducing module** and use extended cross-stitch unit as **knowledge transfer module**.
 
 
 
