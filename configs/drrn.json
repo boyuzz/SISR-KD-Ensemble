@@ -1,0 +1,55 @@
+  {
+  "exp_name": "drrn",
+  "seed": 47,
+  "train_data_loader": {
+    "data_path": "./data/",
+    "train_path": "291",
+    "preload": true,
+    "test_path": ["Set5"],
+    "threads": 0,
+    "batch_size": 64,
+    "crop_size": 128,
+    "is_gray": true,
+    "is_rotate": true,
+    "is_fliplr": true,
+    "is_fliptb": false,
+    "random_scale": true
+  },
+  "test_data_loader": {
+    "data_path": "../data/",
+    "test_path": ["Set5"],
+    "upscale": 2
+  },
+  "trainer": {
+    "net": "drrn",
+    "cuda": true,
+    "iter_per_epoch": 1000,
+    "log_freq": 200,
+    "num_epochs": 1000,
+    "save_freq": 200,
+    "max_gradual_scale": 2,
+    "progressive": true,
+    "upscale": 8,
+    "resume": false,
+    "checkpoint": "./pretrained/model_drrn.pth",
+    "optimizer": {
+      "type": "SGD",
+      "bias_lr": 5e-7,
+      "min_lr_fraction": 0.2,
+      "optimizer_param": {
+        "lr": 5e-6,
+        "weight_decay": 5e-4,
+        "momentum": 0.9
+      },
+      "lr_scheduler": "StepLR",
+      "lr_scheduler_param": {
+        "step_size": 100,
+        "gamma": 0.5
+      }
+    }
+  },
+  "model": {
+    "in_channels": 1,
+    "num_filter": 64
+  }
+}

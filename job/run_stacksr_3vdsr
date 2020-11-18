@@ -1,0 +1,20 @@
+#!/bin/bash
+#SBATCH --job-name=stacksr
+#SBATCH --output=stacksr_lr=1e-3_3vdsr_2x.txt
+#SBATCH --ntasks=1
+#SBATCH --mem-per-cpu=16G
+#SBATCH --time=140:00:00
+#SBATCH --ntasks-per-node=1
+#SBATCH --partition=skylake-gpu
+#SBATCH --gres=gpu:2
+
+
+module load gcc/7.3.0
+module load anaconda3/5.1.0
+module load cuda/9.2.88
+module load cudnn/7.2.1-cuda-9.2.88
+source activate /fred/oz019/env/pytorch
+
+cd ..
+
+python main_train.py -c configs/stacksr_3vdsr.json

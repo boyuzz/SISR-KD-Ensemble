@@ -1,0 +1,93 @@
+{
+  "exp_name": "combine stacksr lr=1e-3 28init 4x",
+  "seed": 47,
+  "train_data_loader": {
+    "data_path": "./data/",
+    "train_path": "stacksr_x4.h5",
+    "preload": true,
+    "test_path": "Set5",
+    "threads": 0,
+    "batch_size": 16,
+    "crop_size": 96,
+    "is_gray": true,
+    "is_rotate": true,
+    "is_fliplr": true,
+    "is_fliptb": true,
+    "random_scale": true
+  },
+  "test_data_loader": {
+    "data_path": "../data/",
+    "test_path": ["Set5", "Set14", "BSDS100", "urban100"],
+    "upscale": 4
+  },
+  "trainer": {
+    "net": "stacksr",
+    "bot": false,
+    "cuda": true,
+    "log_freq": 50,
+    "num_epochs": 100,
+    "save_freq": 10,
+    "progressive": false,
+    "train_ow_epoch":0,
+    "2stage": false,
+    "upscale": 4,
+    "resume": true,
+    "checkpoint": "./pretrained/weights.epoch_6_mean_val_psnr_31.038.hdf5",
+    "optimizer": {
+      "type": "Adam",
+      "bias_lr": 1e-3,
+      "w_output_lr": 1e-2,
+      "w_inter_lr": 1e-2,
+      "optimizer_param": {
+        "lr": 1e-3,
+        "weight_decay": 0,
+        "amsgrad": true
+      },
+      "lr_scheduler": "StepLR",
+      "lr_scheduler_param": {
+        "step_size": 20,
+        "gamma": 0.5
+      }
+    },
+    "loss": {
+      "type": "L1Loss",
+      "size_average": false,
+      "batch_average": false
+    },
+	"pop":-1,
+	"use_inter":false,
+	"just_w": false,
+	"combine": true,
+	"vdsr": {
+      "path": "./pretrained/model_vdsr.pth",
+      "in_channels": 1,
+      "num_filter": 64,
+      "num_residuals": 16
+    },
+    "drrn": {
+      "path": "./pretrained/model_drrn.pth",
+      "in_channels": 1,
+      "num_filter": 64,
+      "num_residuals": 5
+    },
+	"lapsrn": {
+      "path": "./pretrained/MSLapSRN_D5R8.mat",
+      "in_channels": 1,
+      "num_filter": 64,
+      "D": 5,
+      "R": 8,
+      "skip_connect": "SS",
+      "input_conv_sigma": 0.001
+    }
+  },
+  "model": {
+    "in_channels": 1,
+    "out_channels": 1,
+    "num_filter": 64,
+    "num_residuals": 3,
+    "is_net": true,
+    "upscale": 4,
+    "num_pretrained": 3,
+    "init_wo": [0.0109,  0.0367, -0.0995,  0.4733,  1.2694]
+  }
+}
