@@ -10,8 +10,13 @@ This work proposes a novel framework of DNN ensemble for SISR which features "di
 
 These two modules are demonstrated in the following figure. The proposed knowledge transfer featured ensemble model uses different upscaling methods (VDSR, DRRN, MS-LapSRN) as **diversity introducing module** and use extended cross-stitch unit as **knowledge transfer module**.
 
+![avatar](./src/framework.png)
 
+The architecture of the proposed network is as follows.
+![avatar](./src/model.png)
 
+Testing results on benchmark.
+![avatar](./src/results.png)
 ****
 # Usage
 
