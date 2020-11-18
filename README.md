@@ -1,4 +1,4 @@
-# Exploring the Other Ways of Utilising the Proposed MTO-based Training Framework
+# Knowledge Transfer featured DNN Ensemble for SISR
 The Pytorch source code of Chapter 6 in thesis [Training Deep Neural Networks via Multi-task Optimisation]
 If you use this code, please cite the thesis.
 
