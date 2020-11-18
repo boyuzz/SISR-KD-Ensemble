@@ -1,4 +1,4 @@
-# Knowledge Transfer featured DNN Ensemble for SISR
+# Knowledge Transfer featured DNN Ensemble for SISR [Pytorch]
 The Pytorch source code of Chapter 6 in thesis [Training Deep Neural Networks via Multi-task Optimisation]
 If you use this code, please cite the thesis.
 
